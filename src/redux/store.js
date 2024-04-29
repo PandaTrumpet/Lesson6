@@ -1,4 +1,6 @@
 import { createStore } from "redux";
+import { devToolsEnhancer } from "@redux-devtools/extension";
+import { rootReducer } from "../redux/reducers";
 const initialState = {
   tasks: [
     { id: 0, text: "Learn HTML and CSS", completed: true },
@@ -15,4 +17,6 @@ const initialState = {
 const rootReducer = (state = initialState, action) => {
   return state;
 };
-export const store = createStore(rootReducer);
+
+const enhancer = devToolsEnhancer();
+export const store = createStore(rootReducer, enhancer);
